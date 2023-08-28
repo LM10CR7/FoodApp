@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant List</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Add your CSS stylesheets and JavaScript files here -->
+    <style>
+        /* Style for the logout button container */
+        .logout-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Style for the logout button */
+        .logout-button {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logout button container -->
+    <div class="logout-container">
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+
+    <h1>Available Restaurants</h1>
+        <!-- Restaurant List -->
+        <% for(var i=0;i<students.length;i++){ %>
+            <ul>
+                <li>
+                    <a href="/menu?name=<%= students[i][1] %>&id=<%= students[i][0] %>"><%- students[i][1] %> </a>
+                </li>
+                
+                <!-- Add more restaurant entries as needed -->
+            </ul>
+        <% } %>
+    <!-- JavaScript for interactions -->
+    <script>
+        // Add your JavaScript code for handling clicks and interactions here
+
+        // JavaScript function for logout action
+        function logout() {
+            // Add your logout logic here
+           // alert("Logout successful"); // Replace with actual logout code
+            window.location.href = '/userLogin';
+        }
+    </script>
+</body>
+</html>

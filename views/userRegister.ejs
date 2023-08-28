@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="userRegistration.css">
+    <style>
+      /* Style for the logout button container */
+      .back-container {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+      }
+  
+      /* Style for the logout button */
+      .back-button {
+          background-color: #f15a24;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 20px;
+          cursor: pointer;
+          font-size: 16px;
+      }
+  </style>
+  </head>
+  <body>
+    <!-- Back button -->
+    <div class="back-container">
+      <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+    <div class="registration-container">
+        <h1>Create User</h1>
+        <form method="post" action="/userRegister">
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-container">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-container">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-container">
+                <label for="phone">Phone no:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="input-container">
+                <label for="location">Location Id:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+      // JavaScript function to go back
+      function goBack() {
+        window.location.href = '/userLogin';
+      }
+    </script>
+</body>
+</html>

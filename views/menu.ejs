@@ -1,0 +1,70 @@
+<!-- menu.ejs -->
+<html>
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" href="menu.css">
+    <style>
+        /* Style for the logout button container */
+        .back-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    
+        /* Style for the logout button */
+        .back-button {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="back-container">
+            <button class="back-button" onclick="goBack()">Back</button>
+        </div>        
+    <h1>Menu</h1>
+    <form action="/menu" method="post">
+        <ul>
+            <% for(var i=0;i<menu.length;i++){ %>
+                <li>
+                    <span><%= menu[i][1] %> - Price: <%= menu[i][3] %></span>
+                    <button type="button" class="minus">-</button>
+                    <input type="number" name="<%= menu[i][0] %>" value="0">
+                    <button type="button" class="plus">+</button>
+                </li>
+            <% } %>
+        </ul>
+        <input type="submit" value="Place Order">
+    </form>
+
+    <script>
+        const minusButtons = document.querySelectorAll('.minus');
+        const plusButtons = document.querySelectorAll('.plus');
+
+        minusButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const input = button.nextElementSibling;
+                if (parseInt(input.value) > 0) {
+                    input.value = parseInt(input.value) - 1;
+                }
+            });
+        });
+
+        plusButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const input = button.previousElementSibling;
+                input.value = parseInt(input.value) + 1;
+            });
+        });
+
+        function goBack() {
+            window.location.href = '/dashboard';
+        }
+    </script>
+</body>
+</html>

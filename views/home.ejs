@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Informations</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Restaurant ID</th>
+                <th>Name</th>
+                <th>Ratings</th>
+                <th>Opens</th>
+                <th>Closes</th>
+                <th>Location ID</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0;i<students.length;i++){ %>
+            <tr>
+                <td><%- students[i][0] %></td>
+                <td><%- students[i][1] %></td>
+                <td><%- students[i][2] %></td>
+                <td><%- students[i][3] %></td>
+                <td><%- students[i][4] %></td>
+                <td><%- students[i][5] %></td>
+            </tr>
+          <% } %>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</body>
+</html>

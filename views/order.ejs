@@ -1,0 +1,43 @@
+<!-- order.ejs -->
+<html>
+<head>
+    <title>Order Confirmation</title>
+    <style>
+        /* Style for the logout button container */
+        .back-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    
+        /* Style for the logout button */
+        .back-button {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-container">
+        <button class="back-button" onclick="goBack()">Dashboard</button>
+    </div>
+    <h1>Your Order</h1>
+    <ul>
+        <% for(var i=0;i<orderedItems.length;i++) { %>
+            <li><%= orderedItems[i].name %> <%= orderedItems[i].quantity %></li>
+        <% } %>
+    </ul>
+    <p>Thank you for your order!</p>
+    <script>
+        // JavaScript function to go back
+        function goBack() {
+          window.location.href = '/dashboard';
+        }
+    </script>
+</body>
+</html>
