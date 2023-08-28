@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Rider Registration</title>
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0"/>
+    <link rel="stylesheet" href="riderRegister.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="form-title">Rider Registration</h1>
+      <form method="post" action="/riderRegister">
+        <div class="main-user-info">
+          <div class="user-input-box">
+            <label for="name">Full Name:</label>
+            <input type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter Fullname"
+                     required><br>
+          </div>
+          <div class="user-input-box">
+            <label for="password">Password:</label>
+            <input type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    required> <br>
+          </div>
+
+
+          <div class="user-input-box">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter Phone-Number"
+                   required><br>
+          </div>
+
+          <div class="user-input-box">
+            <label for="city">City:</label>
+            <input type="text"
+                    id="city"
+                    name="city"
+                    placeholder="Enter City"
+                     required><br>
+          </div>
+        </div>
+
+        <div class="Submit">
+        <button type="submit">Register</button>
+      </div>
+
+      </form>
+    </div>
+    
+  </body>
+</html>
