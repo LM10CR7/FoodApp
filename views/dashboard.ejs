@@ -28,11 +28,17 @@
     <!-- Logout button container -->
     <div class="logout-container">
         <button class="logout-button" onclick="logout()">Logout</button>
+        <button class="logout-button" onclick="viewHistory()">Order History</button>
     </div>
+    <h1>Restaurant Search</h1>
+    
+    <input type="text" id="searchInput" onkeyup="showSuggestions()" placeholder="Search for a restaurant...">
+    
+    <ul id="suggestionList"></ul>
 
     <h1>Available Restaurants</h1>
         <!-- Restaurant List -->
-        <% for(var i=0;i<students.length;i++){ %>
+        <% for (var i = 0; i < students.length; i++) { %>
             <ul>
                 <li>
                     <a href="/menu?name=<%= students[i][1] %>&id=<%= students[i][0] %>"><%- students[i][1] %> </a>
@@ -43,14 +49,44 @@
         <% } %>
     <!-- JavaScript for interactions -->
     <script>
-        // Add your JavaScript code for handling clicks and interactions here
+        // Access the students array from the server-side rendering
+        const students = <%- JSON.stringify(students) %>;
 
         // JavaScript function for logout action
         function logout() {
             // Add your logout logic here
-           // alert("Logout successful"); // Replace with actual logout code
+            // alert("Logout successful"); // Replace with actual logout code
             window.location.href = '/userLogin';
         }
+        
+        // Renamed history() function to viewHistory() to avoid conflicts
+        function viewHistory() {
+            // Add your logic for viewing order history here
+            window.location.href = '/orderHistory';
+        }
+
+        function showSuggestions() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const suggestionList = document.getElementById('suggestionList');
+            suggestionList.innerHTML = '';
+
+            students.forEach((restaurant) => {
+                const name = restaurant[1].toLowerCase();
+                if (name.includes(input)) {
+                    const li = document.createElement('li');
+                    // Create an anchor link
+                    const link = document.createElement('a');
+                    link.textContent = restaurant[1];
+                    link.href = `/menu?name=${encodeURIComponent(restaurant[1])}&id=${restaurant[0]}`;
+                    
+                    // Append the anchor link to the list item
+                    li.appendChild(link);
+
+                    suggestionList.appendChild(li);
+                }
+            });
+        }
+
     </script>
 </body>
 </html>
