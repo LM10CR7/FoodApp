@@ -22,6 +22,11 @@
             cursor: pointer;
             font-size: 16px;
         }
+
+        /* Style for the filter container */
+        .filter-container {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -31,26 +36,43 @@
         <button class="logout-button" onclick="viewHistory()">Order History</button>
     </div>
     <h1>Restaurant Search</h1>
-    
+
+    <!-- Filter container -->
+    <div class="filter-container">
+        <!-- Button to show the filter dropdown -->
+        <button onclick="toggleFilterDropdown()">Filter</button>
+        <!-- Dropdown for common food items (initially hidden) -->
+        <select id="foodFilter" style="display: none;" onchange="filterRestaurants()">
+            <option value="" disabled selected>Select a food item</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Burger">Burger</option>
+            <option value="Sushi">Sushi</option>
+            <!-- Add more food items as needed -->
+        </select>
+    </div>
+
+    <!-- Search input for live suggestions -->
     <input type="text" id="searchInput" onkeyup="showSuggestions()" placeholder="Search for a restaurant...">
-    
     <ul id="suggestionList"></ul>
 
+    <ul id="restaurantList"></ul>
+
     <h1>Available Restaurants</h1>
-        <!-- Restaurant List -->
-        <% for (var i = 0; i < students.length; i++) { %>
-            <ul>
-                <li>
-                    <a href="/menu?name=<%= students[i][1] %>&id=<%= students[i][0] %>"><%- students[i][1] %> </a>
-                </li>
-                
-                <!-- Add more restaurant entries as needed -->
-            </ul>
-        <% } %>
+    <!-- Restaurant List -->
+    <% for (var i = 0; i < students.length; i++) { %>
+        <ul>
+            <li>
+                <a href="/menu?name=<%= students[i][1] %>&id=<%= students[i][0] %>"><%- students[i][1] %> </a>
+            </li>
+            <!-- Add more restaurant entries as needed -->
+        </ul>
+    <% } %>
+
     <!-- JavaScript for interactions -->
     <script>
         // Access the students array from the server-side rendering
         const students = <%- JSON.stringify(students) %>;
+        const foods = <%- JSON.stringify(foods) %>;
 
         // JavaScript function for logout action
         function logout() {
@@ -58,35 +80,58 @@
             // alert("Logout successful"); // Replace with actual logout code
             window.location.href = '/userLogin';
         }
-        
+
         // Renamed history() function to viewHistory() to avoid conflicts
         function viewHistory() {
             // Add your logic for viewing order history here
             window.location.href = '/orderHistory';
         }
 
+        // Function to toggle the filter dropdown's visibility
+        function toggleFilterDropdown() {
+            const foodFilter = document.getElementById('foodFilter');
+            if (foodFilter.style.display === 'none') {
+                foodFilter.style.display = 'block';
+            } else {
+                foodFilter.style.display = 'none';
+            }
+        }
+
+        // Function to filter restaurants based on the selected food item
+        function filterRestaurants() {
+            const selectedFood = document.getElementById('foodFilter').value.toLowerCase();
+            const restaurantList = document.getElementById('restaurantList');
+            restaurantList.innerHTML = '';
+            const uniqueRestaurantNames = new Set();
+            foods.forEach((restaurant) => {
+                const foodItems = restaurant[7].toLowerCase(); // Assuming food items are stored in students[i][2]
+
+                if (foodItems.includes(selectedFood) && !uniqueRestaurantNames.has(restaurant[1])) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="/menu?name=${encodeURIComponent(restaurant[1])}&id=${restaurant[0]}">${restaurant[1]}</a>`;
+                    restaurantList.appendChild(li);
+                    uniqueRestaurantNames.appendChild(restaurant[1]);
+                }   
+            });
+        }
+
+        // Function for live suggestions
         function showSuggestions() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const suggestionList = document.getElementById('suggestionList');
             suggestionList.innerHTML = '';
-
+            if (input === '') {
+                return; // Exit the function without populating suggestions
+            }
             students.forEach((restaurant) => {
                 const name = restaurant[1].toLowerCase();
                 if (name.includes(input)) {
                     const li = document.createElement('li');
-                    // Create an anchor link
-                    const link = document.createElement('a');
-                    link.textContent = restaurant[1];
-                    link.href = `/menu?name=${encodeURIComponent(restaurant[1])}&id=${restaurant[0]}`;
-                    
-                    // Append the anchor link to the list item
-                    li.appendChild(link);
-
+                    li.innerHTML = `<a href="/menu?name=${encodeURIComponent(restaurant[1])}&id=${restaurant[0]}">${restaurant[1]}</a>`;
                     suggestionList.appendChild(li);
                 }
             });
         }
-
     </script>
 </body>
 </html>
