@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Confirmation</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .message {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-button-container {
+            margin-top: 20px;
+        }
+
+        /* Style for the back button */
+        .back-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message">
+            <h1>Order Cancel!</h1>
+            <p>Your order has been successfully cancelled.</p>
+        </div>
+        
+        <div class="back-button-container">
+            <button class="back-button" onclick="goBack()">Back</button>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript function to go back to another page
+        function goBack() {
+            // Add your logic here to redirect to another page
+            window.location.href = '/orderHistory'; // Change '/another-page' to your desired page URL
+        }
+    </script>
+</body>
+</html>
