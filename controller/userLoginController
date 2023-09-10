@@ -18,7 +18,8 @@ const { use } = require('../router/home');
         
          if (dbPasswordHash===password) {
           process.env.userId=result.rows[0][0];
-          console.log("chole",process.env.userId);
+          req.session.userId=result.rows[0][0];
+          //console.log("chole",process.env.userId);
           const user=[username];
 
           const myObject =[username];

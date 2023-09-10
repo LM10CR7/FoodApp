@@ -16,6 +16,7 @@ async function checkLogin(req ,res){
 
          if (dbPasswordHash===password) {
           process.env.riderId=result.rows[0][0];
+          req.session.riderId=result.rows[0][0];
            //req.session.user = { username };
            res.redirect('/riderDashboard');
          } else {
