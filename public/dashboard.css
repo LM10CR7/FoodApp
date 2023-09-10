@@ -1,0 +1,122 @@
+/* Center the ul list in the middle of the container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .hungry{
+    font-size: 122%;
+  }
+  .res_search{
+    width: 100%;
+    max-width: 950px;
+    background: transparent;
+    margin: 0 px;
+    border-radius: 10px;
+    box-shadow: inset -2px 2px 2px white;
+  }
+.hide{
+  background-color: #ffffff;
+  width: 10%;
+  height: 40%;
+  position:absolute;
+  top: 0;
+  right: 0;
+}
+  
+  .res_search input{
+    height: 60px;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    border: 1px solid grey;
+    padding: 0 10px;
+    border-radius: 8px;
+
+}
+.res_search ::placeholder{
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: bold;
+}
+  
+  /* Style the list container */
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+  
+  /* Style each list item */
+  ul li {
+    background-color: #f0f0f0; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow */
+    margin: 10px; /* Spacing between items */
+    padding: 15px; /* Padding inside the item */
+    width: calc(33.33% - 20px); /* Adjust based on the number of items per row */
+    box-sizing: border-box;
+    cursor: pointer; /* Cursor pointer */
+    transition: transform 0.2s ease-in-out; /* Smooth transition */
+
+  }
+  
+
+  /* Hover effect */
+  ul li:hover {
+    transform: scale(1.02); /* Scale up on hover */
+    background-color: #e0e0e0; /* Background color on hover */
+  }
+  ul li .rating {
+    font-size: 20px; /* Adjust the font size as needed */
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0); /* Add a background color for readability */
+   
+    color: #c9198c;
+    padding: 5px 10px;
+    border-radius: 0 0 0 5px; /* Rounded corner on the left side */
+ 
+}
+
+
+
+.resname{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Style for the suggestion list items */
+.suggestion-item {
+  width: 42%; /* Set the width to auto to match the restaurant list items */
+  border-radius: 10px; /* Rounded corners */
+  padding: 13px; /* Add padding for better appearance */
+  border: 1px solid grey; /* Add a border for separation */
+  background-color: #f0f0f0; /* Background color */
+}
+
+
+.button {
+    
+  background-color: #f15a24;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+#foodFilter {
+  font-size: 16px; /* Adjust the font size as needed */
+  padding: 10px; /* Adjust the padding (height) as needed */
+  width: 33.5%;
+}
+
