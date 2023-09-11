@@ -19,6 +19,7 @@ const cancelOrder=require("./router/cancelOrder");
 const deliveryDetails=require("./router/deliveryDetails");
 const review=require("./router/review");
 const forgotPassword=require("./router/forgotPassword");
+const about=require("./router/about");
 const session=require("express-session");
 
 const{dbConfig}=require("./connection");
@@ -63,6 +64,7 @@ app.use("/cancelOrder",cancelOrder);
 app.use("/deliveryDetails",deliveryDetails);
 app.use("/review",review);
 app.use("/forgotPassword",forgotPassword);
+app.use("/about",about);
 
 app.listen(process.env.PORT,() =>{
     console.log("app run"); 
