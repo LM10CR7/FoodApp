@@ -9,19 +9,28 @@
 <body>
   <div class="Login">
   <h1>Login</h1>
+  <h3><br></h3>
   <form method="post" action="/rider">
     <label for="mobile">Mobile No:</label>
-    <input type="text" id="mobile" name="mobile" required><br>
+    <input type="text" id="mobile" name="mobile" placeholder="Enter Mobile Number"required><br>
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br>
+    <input type="password" id="password" name="password" placeholder="Enter Password"required><br>
     <button type="submit">Login</button>
   </form>
 </div>
 <section>
-  <img src="deliverman.png"  class="deliverman">
+  <img src="deliverman2.png"  class="deliverman">
 </section>
 <div class="Account">
   <h3>Don't have an account? <a href="/riderRegister">Create New User</a></h3>
 </div>
+<div class="button-container">
+  <button onclick="Back()" class="button">Back</button>
+</div>
+<script>
+      function Back(){
+      window.location.href='/';
+    }
+</script>
 </body>
 </html>

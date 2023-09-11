@@ -3,14 +3,28 @@
 <head>
     <title>Order Confirmation</title>
     <style>
-        /* Style for the logout button container */
+
+                /* Reset some default styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        /* Back container styles */
         .back-container {
             position: absolute;
             top: 10px;
             right: 10px;
         }
-    
-        /* Style for the logout button */
+
+        /* Back button styles */
         .back-button {
             background-color: #f15a24;
             color: #fff;
@@ -20,19 +34,66 @@
             cursor: pointer;
             font-size: 16px;
         }
+
+        .back-button:hover {
+            background-color: #15e431;
+        }
+
+        /* Heading styles */
+        h1 {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #000000;
+        }
+
+        /* List styles */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* List item styles */
+        li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+
+        /* Paragraph styles */
+        p {
+            font-size: 16px;
+            color: #000000;
+        }
+        .message {
+            background-color: #fffffff4;
+            padding: 20px;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 82, 82, 0.779);
+            position:relative; 
+            top: 10%;
+            left: 50%; 
+            transform: translate(-50%,20%); /* Center the element horizontally and vertically */
+            font-size: 30px;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
     <div class="back-container">
         <button class="back-button" onclick="goBack()">Dashboard</button>
     </div>
-    <h1>Your Order</h1>
+    <div class="message">
+    <h2>Your Order</h2>
     <ul>
         <% for(var i=0;i<orderedItems.length;i++) { %>
-            <li><%= orderedItems[i].name %> <%= orderedItems[i].quantity %></li>
+            <li><h3><%= orderedItems[i].item_type%> <%= orderedItems[i].name %> - <%= orderedItems[i].quantity %></h3></li>
         <% } %>
+    
     </ul>
-    <p>Thank you for your order!</p>
+    <h4>Thank you for your order!</h4>
+    </div>
     <script>
         // JavaScript function to go back
         function goBack() {

@@ -2,20 +2,31 @@
 <html>
 <head>
     <title>Write a Review</title>
+    <link rel="stylesheet" href="review.css">
 </head>
 <body>
     <header>
         <h1>Write a Review</h1>
-        <a href="/orderHistory">Back</a> <!-- Replace '/' with the URL you want the "Back" button to navigate to -->
+       <!-- Replace '/' with the URL you want the "Back" button to navigate to -->
     </header>
-    
+    <h1><br></h1>
+    <h1><br></h1>
+    <div class="back-container">
+        <button class="back-button" onclick="goBack()">Back</button>
+    </div> 
     <main>
         <form action="/review" method="POST"> <!-- Replace '/post-review' with the actual URL for posting reviews -->
             <label for="review">Your Review:</label><br>
+            <h3><br></h3>
             <textarea id="review" name="review" rows="4" cols="50" placeholder="Write your review here..."></textarea><br>
             
             <button type="submit">Post Review</button>
         </form>
     </main>
+    <script>
+    function goBack() {
+        window.location.href = '/orderHistory';
+    }
+</script>
 </body>
 </html>

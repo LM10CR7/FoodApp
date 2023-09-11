@@ -12,6 +12,7 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+            
         }
 
         /* Style the container for the message */
@@ -41,12 +42,27 @@
         a:hover {
             text-decoration: underline;
         }
+        .message1 {
+            background-color: #fffffff4;
+            padding: 20px;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 82, 82, 0.779);
+            position:relative; 
+            top: 200%;
+            left: 50%; 
+            transform: translate(-50%,20%); /* Center the element horizontally and vertically */
+            font-size: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Password Changed Successfully!</h1>
-        <p>You can now <a href="/userLogin">Go Back</a>.</p>
+    
+        <div class="message1">
+        <h1>Registration Successful!</h1>
+        <p>You can now <a href="/userLogin">Login</a></p>
+        
     </div>
 </body>
 </html>

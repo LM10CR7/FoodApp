@@ -6,18 +6,44 @@
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
+ 
   <h1>Welcome to FoodApp</h1>
+<div class="intro"><h2>Phone Call Away Delivery</h2>
+</div>
+<div class="welcome">
+<h2>Order your favourite foods at any time <br>and we will deliver <br>them 
+   right to where you are
+</h2>
+</div>
+<div class="intro2"><h2>Find Out A Little More About Us</h2></div>
+<div class="welcome2"><h2>We are a company dedicated to the distribution <br>of
+products by delivery to your home or <br>to the place where you are,with the best quality <br>of delivery</h2></div>
   <div class="button-container">
-    
+    <button onclick="redirectToHomepage()" class="button">Home</button>
+    <button onclick="redirectToAboutUspage()" class="button">About</button>
     <button onclick="redirectToPage()" class="button">Login as Customer</button>
     <button onclick="redirectToPage2()" class="button">Login as Rider</button>
+   
+
+  </div>
+  <div class="rider-container">
+    <img src="rider.jpg" class="rider-image">
+  </div>
+  <div class="deliver-container">
+    <img src="deliver.jpg" class="deliver-image">
   </div>
   <script>
+    function redirectToHomepage(){
+      window.location.href='/';
+    }
     function redirectToPage() {
         window.location.href = '/userLogin'; // replace "/another-page" with the desired URL
     }
     function redirectToPage2() {
         window.location.href = '/rider'; // replace "/another-page" with the desired URL
+    }
+    function redirectToAboutUspage(){
+      window.location.href='/about';
     }
     </script>
 </body>

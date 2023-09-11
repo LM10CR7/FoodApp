@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <style>
+
+            body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 40vh;
+           
+        }
+        
+        .order-box {
+          
+            background-color: #eb4b4b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 350px;
+            color: #000000;
+        }
+
+
+
+        /* Style for the details button */
+        .details-button {
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .selected h1{
+            
+            font-size: 40px;
+            margin-left: 5px; 
+            margin-top: 110px;
+            color: #000000; 
+        }
+        .selected1 h1{
+            
+            font-size: 40px;
+            margin-left: -600px; 
+            margin-top: 10px;
+            color: #000000; 
+        }
+        
+
+        .logout-container {
+            position: absolute;
+            top: 18px;
+            right: 12px;
+        }
+
+        /* Style for the logout button */
+        .logout-button {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .logout-button:hover{
+            background-color: #15e431;
+        }
+        .space{
+            padding: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="selected">
+    <h1>Delivery Details</h1>
+    </div>
+    <div class="container">
+            <div class="order-box">
+              <p><%details[0][0] %></p>  
+                <ul>
+                    <% details.forEach(function(item) { %>
+                        <li>
+                            <h3>
+                            <div class="space">
+                                <strong>Rider Name:</strong> <%= item[0] %><br>
+                            </div>
+                            <div class="space">
+                            <strong>Customer Name:</strong> <%= item[5] %><br>
+                            </div>
+                            <div class="space">
+                            <strong>  Price:</strong> TK<%= item[4] %><br>
+                            </div>
+                            <div class="space">
+                            <strong>  Delivery Time:</strong> <%= item[3] %><br>
+                            </div>
+                            <strong>  Review:</strong> <%= item[2] %>
+                        </h3>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+    </div>
+    <div class="logout-container">
+        <button class="logout-button" onclick="Home()">Home</button>
+        <button class="logout-button" onclick="Back()">Back</button>
+    </div>
+    <script>
+        function Home() {
+            window.location.href = '/';
+        }
+        function Back() {
+            window.location.href = '/riderDashboard';
+        }
+    </script>
+</body>
+</html>

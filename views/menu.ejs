@@ -10,6 +10,7 @@
             top: 10px;
             right: 10px;
         }
+
     
         /* Style for the logout button */
         .back-button {
@@ -21,20 +22,98 @@
             cursor: pointer;
             font-size: 16px;
         }
+        .back-button:hover
+        {
+            background-color: #15e431;
+        }
+
+     /* ... (your existing CSS) ... */
+
+        /* Style for the plus and minus buttons */
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+          
+        }
+        .minus
+        {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+        
+            /*cursor: pointer;*/
+          
+            bottom: 0%;
+            right: 60px;
+          
+        }
+        .plus {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+           
+            /*cursor: pointer;*/
+            bottom: -200px;
+            left: 190px;
+          
+        }
+
+        /* Style for the input */
+
+        input[type="number"] {
+          
+            width: 297.5px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        input[type="submit"] {
+        position: relative;
+        background-color: #f15a24;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+        left: 580px;
+        bottom: 0px;
+}
+
+input[type="submit"]:hover {
+    background-color: #15e431;
+}
+ 
     </style>
     </head>
     <body>
         <div class="back-container">
             <button class="back-button" onclick="goBack()">Back</button>
-        </div>        
-    <h1>Menu</h1>
+        </div> 
+        <div class="translation">
+            <h1>Menu</h1>
+        </div>
     <form action="/menu" method="post">
         <ul>
-            <% for(var i=0;i<menu.length;i++){ %>
+            <% for(var i=0;i<imgL.length;i++){ %>
                 <li>
-                    <span><%= menu[i][1] %> - Price: <%= menu[i][3] %></span>
+                    <div class="adjust">
+                    <span><%= imgL[i][2] %> <%= imgL[i][0] %> - Price: <%= imgL[i][3] %></span>
+                </div>
+                    <img src="<%- imgL[i][7] %>" class="IMG">
+                    <p></p>
                     <button type="button" class="minus">-</button>
-                    <input type="number" name="<%= menu[i][0] %>" value="0">
+                    <input type="number" name="<%= imgL[i][1] %>" value="0">
                     <button type="button" class="plus">+</button>
                 </li>
             <% } %>

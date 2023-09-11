@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        
+        .message {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            box-shadow: 0 0 10px rgba(255, 82, 82, 0.779);
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+        
+        .logout-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Style for the logout button */
+        .logout-button {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Style for the details button */
+        .details-button {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            
+        }
+        .order_history h1{
+            
+            font-size: 40px;
+
+            margin-top: 20px;
+            margin-left: 35px; 
+            color: #000000; 
+        }
+        .logout-button:hover{
+            background-color: #15e431;
+        }
+        /* Style for the cancel button */
+        .cancel-button {
+            background-color: #14825f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .cancel-button:hover{
+            background-color: #ff0000;
+        }
+        .details-button:hover{
+            background-color: #15e431;
+        }
+        .message1 {
+            background-color: #fffffff4;
+            padding: 20px;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 82, 82, 0.779);
+            position:relative; 
+            top: 100%;
+            left: 50%; 
+            transform: translate(-50%,20%); /* Center the element horizontally and vertically */
+            
+        }
+
+    </style>
+</head>
+<body>
+    <% if (orderList.length === 0&&pendingList.length===0) { %>
+        <div class="container">
+            <div class="message">
+                
+                <h1>No Orders</h1>
+                <p>You do not have any order.</p>
+           
+            </div>
+        </div>
+    <% } else { %>
+        <div class="order_history">
+        <h1>Pending Orders</h1>
+    </div>
+        <ul>
+            <% pendingList.forEach(function(order) { %>
+                <li>
+                    <div class="message1">
+                    <h2>To see details of order <%= order[7] %> tap on details</h2>
+                    <a href="/details?id=<%= order[7] %>" class="details-button">Details</a>
+                    <a href="/cancelOrder?id=<%= order[7] %>" class="cancel-button">Cancel Order</a>
+                    <p> </p>
+                </div>
+                <h3><br></h3>
+                </li>
+                <h3><br></h3>
+           
+            <% }); %>
+        </ul>
+        <div class="order_history">
+        <h1>Previous Orders</h1>
+        </div>
+        <ul>
+            
+            <% orderList.forEach(function(order) { %>
+                <li>
+                    <div class="message1">
+                    <h2>To see details of order <%= order[7] %> tap on details</h2>
+                    <a href="/details?id=<%= order[7] %>" class="details-button">Details</a>  <% if(order[9]===' ') { %>
+                        <a href="/review?id=<%= order[7] %>" class="details-button">Give a review</a>
+                        <% }%>
+                    <p> </p>
+                    
+                </div>
+                <h3><br></h3>
+                </li>
+            <% }); %>
+            
+        </ul>
+    <% } %>
+    <div class="logout-container">
+        
+        <button class="logout-button" onclick="viewHistory()">Back</button>
+    </div>
+    <script>
+
+        function viewHistory() {
+            window.location.href = '/dashboard';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant List</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Add your CSS stylesheets and JavaScript files here -->
+    <style>
+        /* Style for the logout button container */
+        .logout-container {
+            position: absolute;
+            top: 18px;
+            right: 12px;
+        }
+
+        /* Style for the logout button */
+        .logout-button {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .logout-button:hover{
+            background-color: #15e431;
+        }
+
+        /* Style for the filter container */
+        .filter-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hungry">
+        <h1>Hungry? Order from your favourite restaurant</h1>
+        </div>
+
+
+    <!-- Search input for live suggestions -->
+    <div class="res_search">
+    <input type="text" id="searchInput" onkeyup="showSuggestions()" placeholder="Search for a restaurant...">
+    <ul id="suggestionList"></ul>
+
+    
+    </div>
+
+        <!-- Filter container -->
+        <div class="filter-container">
+            <!-- Button to show the filter dropdown -->
+            <button onclick="toggleFilterDropdown()"><h3>You Can Search Your Favourite Food By Tapping Here</h3></button>
+            <!-- Dropdown for common food items (initially hidden) -->
+            <select id="foodFilter" style="display: none;" onchange="filterRestaurants()">
+                <option value="" disabled selected>Select a food item</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Burger">Burger</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Chicken Chowmein">Chicken Chowmein</option>
+                <option value="MeatBox">MeatBox</option>
+                <option value="Cake">Cake</option>
+                <option value="Sweet Vanilla">Sweet Vanilla</option>
+                <option value="Rice Bowl">Rice Bowl</option>
+                <option value="Muffin">Muffin</option>
+                <option value="Faluda">Faluda</option>
+                <option value="Chicken Cheese Roll">Chicken Cheese Roll</option>
+                <option value="Nachos">Nachos</option>
+                <option value="Fried Chicken">Fried Chicken</option>
+                <option value="Chocolate Crepes">Chocolate Crepes</option>
+                <option value="Chicken Swarma">Chicken Swarma</option>
+                <option value="Chicken Kabab">Chicken Kabab</option>
+                <option value="Borhani">Borhani</option>
+                <option value="Chicken Roast">Chicken Roast</option>
+                <option value="Peanut Butter Cookie">Peanut Butter Cookie</option>
+                <option value="Marshmallow Taste">Marshmallow Taste</option>
+                <option value="Sweet Cherry Desert">Sweet Cherry Desert</option>
+                <option value="Beef Kacchi">Beef Kacchi</option>
+                <option value="Banana Pudding">Banana Pudding</option>
+                <option value="Ice Cream">Ice Cream</option>
+                <option value="Chicken Fry">Chicken Fry</option>
+                <option value="Mixed Vegetable">Mixed Vegetable</option>
+                <option value="Cold Chocolate Milk">Cold Chocolate Milk</option>
+                <option value="Custard">Custard</option>
+                <option value="Brownie">Brownie</option>
+                <option value="Polao">Polao</option>
+                <option value="Garlic Nan">Garlic Nan</option>
+                <option value="Beef Rezala">Beef Rezala</option>
+                <option value="Beef Kabab">Beef Kabab</option>
+                <option value="BBQ Wings">BBQ Wings</option>
+                <option value="Roshogolla">Roshogolla</option>
+                <option value="Chicken Noodles">Chicken Noodles</option>
+                <option value="Garlic Prawn">Garlic Prawn</option>
+                <option value="Chicken Sandwich">Chicken Sandwich</option>
+                <option value="Potato Wedges">Potato Wedges</option>
+                <option value="French Fry">French Fry</option>
+                <option value="Chicken Cheese Ball">Chicken Cheese Ball</option>
+                <option value="Cheese Balls">Cheese Balls</option>
+                <option value="Prawn with Ginger Mashroom">Prawn with Ginger Mashroom</option>
+                <option value="Rum Ball">Rum Ball</option>
+                <option value="Sugar Cookie">Sugar Cookie</option>
+                <option value="Chicken Lollipop">Chicken Lollipop</option>
+                <option value="Fig Roll">Fig Roll</option>
+                <option value="Plain Nan">Plain Nan</option>
+                <option value="Crispy Wings">Crispy Wings</option>
+                <option value="Mojo">Mojo</option>
+                <option value="Coca-Cola">Coca-Cola</option>
+                <option value="Biryani">Biryani</option>
+                <option value="Salmon">Salmon</option>
+                <option value="Crispy Telapia">Crispy Telapia</option>
+                <option value="Garlic Fish">Garlic Fish</option>
+                <option value="Chicken">Chicken</option>
+                <option value="Fish">Fish</option>
+                <option value="Mountain Dew">Mountain Dew</option>
+                <option value="Pepsi">Pepsi</option>
+                <option value="Wonton">Wonton</option>
+                <option value="Soup">Soup</option>
+
+                <!-- Add more food items as needed -->
+            </select>
+        </div>
+        <ul id="restaurantList"></ul>
+
+    <h1>Available Restaurants</h1>
+    <!-- Restaurant List -->
+    <ul>
+        <% for(var i=0;i<students.length;i++){ %>
+           
+                <li onclick="redirectToMenu('<%= students[i][1] %>', '<%= students[i][0] %>')">
+                  
+                    <img src="<%- students[i][6] %>" class="IMG">
+                    <span class="resname"><%- students[i][1] %></span>
+                    &emsp;
+                    <span class="rating"> Rating:<%- students[i][2] %> </span>
+                   
+                </li>
+        <% } %>
+    </ul>
+    <div class="hide">
+    <p></p>
+    </div>
+        <!-- Logout button container -->
+        <div class="logout-container">
+            <button class="logout-button" onclick="logout()">Logout</button>
+            <button class="logout-button" onclick="viewHistory()">Order History</button>
+        </div>
+    <!-- JavaScript for interactions -->
+    <script>
+
+
+        function redirectToMenu(restaurantName, restaurantId) {
+        const menuUrl = `/menu?name=${encodeURIComponent(restaurantName)}&id=${restaurantId}`;
+        window.location.href = menuUrl;
+        }
+        // Access the students array from the server-side rendering
+        const students = <%- JSON.stringify(students) %>;
+        const foods = <%- JSON.stringify(foods) %>;
+
+        // JavaScript function for logout action
+        function logout() {
+            // Add your logout logic here
+            // alert("Logout successful"); // Replace with actual logout code
+            window.location.href = '/userLogin';
+        }
+
+        // Renamed history() function to viewHistory() to avoid conflicts
+        function viewHistory() {
+            // Add your logic for viewing order history here
+            window.location.href = '/orderHistory';
+        }
+
+        // Function to toggle the filter dropdown's visibility
+        function toggleFilterDropdown() {
+            const foodFilter = document.getElementById('foodFilter');
+            if (foodFilter.style.display === 'none') {
+                foodFilter.style.display = 'block';
+            } else {
+                foodFilter.style.display = 'none';
+            }
+        }
+
+
+
+        
+
+
+
+
+
+// Function for live suggestions
+        // Function to filter restaurants based on the selected food item
+        function filterRestaurants() {
+            const selectedFood = document.getElementById('foodFilter').value.toLowerCase();
+            const restaurantList = document.getElementById('restaurantList');
+            restaurantList.innerHTML = '';
+            const uniqueRestaurantNames = new Set();
+            foods.forEach((restaurant) => {
+                const foodItems = restaurant[7].toLowerCase(); // Assuming food items are stored in students[i][2]
+
+                if (foodItems.includes(selectedFood) && !uniqueRestaurantNames.has(restaurant[1])) {
+                     const li = document.createElement('li');
+
+                     li.innerHTML = `<a href="/menu?name=${encodeURIComponent(restaurant[1])}&id=${restaurant[0]}">${restaurant[1]}</a>`;
+                     restaurantList.appendChild(li);
+                     uniqueRestaurantNames.add(restaurant[1]);
+                    }   
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+// Function for live suggestions
+function showSuggestions() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const suggestionList = document.getElementById('suggestionList');
+    suggestionList.innerHTML = '';
+    if (input === '') {
+        return; // Exit the function without populating suggestions
+    }
+    students.forEach((restaurant) => {
+        const name = restaurant[1].toLowerCase();
+        if (name.includes(input)) {
+            const li = document.createElement('li');
+            const anchor = document.createElement('a'); // Create an anchor element
+            anchor.href = `/menu?name=${encodeURIComponent(restaurant[1])}&id=${restaurant[0]}`; // Set the href attribute
+            const img = document.createElement('img');
+            img.src = restaurant[6]; // Assuming the image URL is stored in students[i][6]
+            li.classList.add('suggestion-item');
+            img.classList.add('suggestion-image'); // Add a CSS class for styling the image if needed
+            anchor.appendChild(img); // Add the image to the anchor element
+            anchor.appendChild(document.createTextNode(restaurant[1])); // Add the restaurant name as plain text
+            li.appendChild(anchor); // Add the anchor element to the list item
+            suggestionList.appendChild(li);
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

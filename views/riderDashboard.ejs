@@ -25,7 +25,23 @@
             background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            box-shadow: 0 0 10px rgba(255, 82, 82, 0.779);
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+        .message1 {
+            background-color: #fffffff4;
+            padding: 20px;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 82, 82, 0.779);
+            position:relative; 
+            top: 100%;
+            left: 50%; 
+            transform: translate(-50%,20%); /* Center the element horizontally and vertically */
+            
         }
         .logout-container {
             position: absolute;
@@ -43,15 +59,61 @@
             cursor: pointer;
             font-size: 16px;
         }
+        .logout-button:hover{
+            background-color: #15e431;
+        }
+        .details-button {
+            background-color: #f15a24;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="message">
-            <h1>No Deliveries</h1>
-            <p>Currently, there are no deliveries available.</p>
+    <% if (orderList.length === 0&&deliverList.length===0) { %>
+        <div class="container">
+            <div class="message">
+                <h1>No Deliveries</h1>
+                <p>Currently, there are no deliveries available.</p>
+            </div>
         </div>
+    <% } else { %>
+        <div class="order_history">
+        <h1>Pending Deliveries</h1>
+        </div>
+        <ul>
+            <% orderList.forEach(function(order) { %>
+                <li><div class="message1">
+                    <h2>To see details of order <%= order[0] %> tap on details</h2> 
+                <a href="/deliver_page?order_id=<%= order[0] %>" class="details-button">Deliver</a>
+            <p> </p>
+        </div>
+        <h3><br></h3>
+        </li>
+        <h3><br></h3>
+            <% }); %>
+        
+        </ul>
+    <% } %>
+    <div class="order_history">
+    <h1>Delivery History</h1>
     </div>
+    <ul>
+        <% deliverList.forEach(function(order) { %>
+            <li><div class="message1">
+                <h2>To see details of order <%= order[1] %> tap on details</h2> 
+            <a href="/deliveryDetails?order_id=<%= order[1] %>" class="details-button">Details</a>
+            <p> </p>
+        </div>
+        <h3><br></h3>
+    </li>
+        <% }); %>
+    </ul>
+        
     <div class="logout-container">
         <button class="logout-button" onclick="logout()">Logout</button>
     </div>
@@ -63,7 +125,7 @@
             // Add your logout logic here
            // alert("Logout successful"); // Replace with actual logout code
             window.location.href = '/rider';
-        }
+        }   
     </script>
 </body>
 </html>
