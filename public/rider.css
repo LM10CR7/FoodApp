@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800,900&display=swap");
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body {
+    background-color: #edcbcb;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    
+  }
+
+.Login {
+    width: 270px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: absolute; /* or "relative" depending on your layout needs */
+    top: 40%; /* Adjust this value to change the vertical position */
+    left: 50%; /* Adjust this value to change the horizontal position */
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(255, 82, 82, 0.779);
+  }
+  
+  .Login h1 {
+    color: #fc0808;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .Login form {
+    display: flex;
+    flex-direction: column; /* Display input fields vertically */
+    
+  }
+  
+  .Login label {
+    left: 50%;
+    
+    font-weight: bold;
+    font-size: 18px;
+    padding: auto;
+    color: #a12396;
+  }
+
+  
+  .Login input {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+  }
+
+  .Login button {
+    background-color: #ff0000; /* Change this color to your desired color */
+    color: white; /* Set the text color for better contrast */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.Login button:hover {
+    background-color: #0cb300; /* Change this color to the hover color you prefer */
+}
+.button-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.button {
+  
+  background-color: #f15a24;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #15e431;
+}
+
+
+section .deliverman
+{
+    position: relative;
+    bottom:-260px;
+    scale: 0.80;
+    animation: animatedman 10s linear infinite;
+}
+
+@keyframes animatedman
+{
+    0%
+    {
+        transform: translateX(calc(100% + 100vw));
+    }
+    50%
+    {
+        transform: translateX(calc(100% - 100vw));
+    }
+    50.01%
+    {
+        transform: translateX(calc(100% - 100vw))
+        rotateY(180deg);
+    }
+    100%
+    {
+        transform: translateX(calc(100% + 100vw))
+        rotateY(180deg);
+    }
+
+}
+
+.Account
+  {
+    color: #000000;
+    position: absolute; /* or "relative" depending on your layout needs */
+    top: 75%; /* Adjust this value to change the vertical position */
+    left: 35%;
+  }
+  
+  /* styles.css */
+
+.Account h3 {
+    font-weight: bold;
+    color: #000000; /* Change to your desired color for paragraph text */
+  }
+  
+  .Account a {
+    font-weight: bold;
+    color: #ff0000; /* Change to your desired color for link text */
+    text-decoration: none; /* Remove the underline from the link */
+  }
+  
+  .Account a:hover {
+    
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
+  @media (max-width: auto) {
+    body {
+        background-size: auto; /* Adjust background size for smaller screens */
+    }
+
+    .Login {
+        display: auto;
+        width: background-size*.050%; /* Adjust the width for smaller screens */
+        top: background-size*50%; /* Adjust vertical position */
+        transform: translate(-50%, -50%);
+    }
+
+    section .deliverman {
+      bottom: -150px; /* Adjust bottom position */
+      scale: background-size*.05px; /* Adjust scaling */
+  }
+
+  .Account {
+      top: auto;
+      bottom: 20px; /* Adjust the bottom position */
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+}

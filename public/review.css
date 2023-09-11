@@ -1,0 +1,102 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a background color to the body */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color:#eb4b4b;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style the h1 in the header */
+header h1 {
+    font-size: 24px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+/* Style the "Back" link */
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Style the main content area */
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 82, 82, 0.779);
+}
+
+/* Style the form label */
+label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Style the textarea for the review */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #f15a24;
+    position: relative;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    left: 220px;
+}
+
+
+
+/* Style the submit button on hover */
+button[type="submit"]:hover {
+    background-color: #15e431;
+}
+.back-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+/* Style for the logout button */
+.back-button {
+    background-color: #f15a24;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.back-button:hover
+{
+    background-color: #15e431;
+}

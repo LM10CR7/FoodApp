@@ -1,0 +1,138 @@
+
+
+body {
+    /*background-image: url('back1.jpg');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+
+  
+  .Login {
+    width: 250px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 3px solid grey; /* Add a border for separation */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: absolute; /* or "relative" depending on your layout needs */
+    top: 47%; /* Adjust this value to change the vertical position */
+    left: 75%; /* Adjust this value to change the horizontal position */
+    transform: translate(-50%, -50%);
+  }
+  
+  .Login h1 {
+    font-size: 30px;
+    color: #fc0808;
+    text-align: center;
+    padding: 2px;
+  }
+  
+  .Login form {
+    display: flex;
+    flex-direction: column; /* Display input fields vertically */
+  }
+  
+  .Login label {
+    left: 50%;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 4px;
+    color: #c03db5;
+  }
+  .rider-container {
+    position: relative;
+    top: 60px;
+    left: -150px;
+  
+  }
+
+  .login-image {
+    width: 50%; /* Optional: To ensure the image fits within the container */
+    height: auto;
+    background: transparent;
+  }
+  
+  .Login input {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+  }
+
+  .Login button {
+    background-color: rgb(255, 0, 0); /* Change this color to your desired color */
+    color: white; /* Set the text color for better contrast */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.Login button:hover {
+    background-color: #0cb300; /* Change this color to the hover color you prefer */
+}
+.Account
+  {
+    color: rgb(211, 47, 47);
+    position: absolute; /* or "relative" depending on your layout needs */
+    top: 80%; /* Adjust this value to change the vertical position */
+    left: 59%;
+    font-size: 20px;
+  }
+  
+  /* styles.css */
+
+.Account h3 {
+    font-weight: bold;
+    color: #000000; /* Change to your desired color for paragraph text */
+  }
+  
+  .Account a {
+    font-weight: bold;
+    color: #ff0000; /* Change to your desired color for link text */
+    text-decoration: none; /* Remove the underline from the link */
+  }
+  
+  .Account a:hover {
+    
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
+  .button-container {
+    position: absolute;
+    display: flex;
+    margin-top: 20px;
+    top: 05px;
+    right: 35px;
+  }
+
+  .button {
+    
+    background-color: #f15a24;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .button:hover {
+    background-color: #15e431;
+  }
+
+  /* Style for the "Forgot Password?" link */
+a#forgot-password-link {
+  display: block; /* Makes the link a block-level element */
+  margin-top: 20px; /* Adjust the margin as needed to move it downward */
+  text-align: center; /* Center the link horizontally */
+  color: #000000;
+  font-weight: bold;
+}
